@@ -314,8 +314,9 @@ public class ConnectionUtil implements LifecycleObserver {
         public void onLost(@NonNull Network network) {
 
             if (getAvailableNetworksCount() == 0) {
+                if(mConnectionStateListener != null){
                 mConnectionStateListener.onAvailable(false);
-                mIsConnected = false;
+                mIsConnected = false;}
             }
 
         }
